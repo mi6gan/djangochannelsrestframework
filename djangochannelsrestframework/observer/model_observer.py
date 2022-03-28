@@ -177,7 +177,7 @@ class ModelObserver(BaseObserver):
         elif self._serializer_class:
             message_body = self._serializer_class(instance).data
         else:
-            message_body["pk"] = instance.pk
+            message_body["pk"] = str(instance.pk)
 
         message = dict(
             type=self.func.__name__.replace("_", "."),
